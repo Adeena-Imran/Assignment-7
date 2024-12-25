@@ -1,4 +1,5 @@
 'use client'; 
+import Image from "next/image";
 import { useState, useEffect } from "react";
 
 
@@ -19,7 +20,7 @@ function Client() {
     async function InnerFetching() {
       try {
         
-        let clientdata = await fetch("https://fakestoreapi.com/products");
+        const clientdata = await fetch("https://fakestoreapi.com/products");
 
         
         if (!clientdata.ok) {
@@ -57,7 +58,7 @@ function Client() {
                 key={product.id} 
                 className="border rounded-lg shadow-lg p-4 bg-white hover:shadow-xl transition-shadow duration-300"
               >
-                <img
+                <Image
                   src={product.image}
                   alt={product.title}
                   className="w-full h-48 object-cover rounded-t-lg"
