@@ -59,9 +59,11 @@ function Client() {
                 className="border rounded-lg shadow-lg p-4 bg-white hover:shadow-xl transition-shadow duration-300"
               >
                 <Image
+                width={100}
+                height={100}
                   src={product.image}
                   alt={product.title}
-                  className="w-full h-48 object-cover rounded-t-lg"
+                  className="w-full h-48 object-contain rounded-t-lg"
                 />
                 <h2 className="text-lg font-semibold text-yellow-950 mt-4">{product.title}</h2>
                 <p className="text-sm text-gray-500 text-yellow-950">{product.description.slice(0, 100)}...</p>
