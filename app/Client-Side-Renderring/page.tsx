@@ -1,7 +1,7 @@
 'use client'; 
 import Image from "next/image";
 import { useState, useEffect } from "react";
-
+import Link from "next/link";
 
 interface Products {
   id: number;
@@ -54,8 +54,9 @@ function Client() {
         Array.isArray(data) && data.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {data.map((product) => (
+             <Link key={product.id} href={`/product-detail/${product.id}`} passHref>
               <div
-                key={product.id} 
+                 
                 className="border rounded-lg shadow-lg p-4 bg-white hover:shadow-xl transition-shadow duration-300"
               >
                 <Image
@@ -67,8 +68,8 @@ function Client() {
                 />
                 <h2 className="text-lg font-semibold text-yellow-950 mt-4">{product.title}</h2>
                 <p className="text-sm text-gray-500 text-yellow-950">{product.description.slice(0, 100)}...</p>
-                <p className="text-xl text-yellow-950 font-bold mt-2">${product.price}</p>
-              </div>
+                <p className="text-xl text-green-600 font-bold mt-2">${product.price}</p> </div></Link>
+          
             ))}
           </div>
         ) : (
